@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [data, setData] = useState({
-    slide: 0,
+    slide: -1,
     title: 'Kaveh',
     text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus quas nam pariatur eaque provident ab eius necessitatibus dolore aspernatur explicabo odio ullam, obcaecati ipsa nesciunt quisquam. Non voluptatem pariatur commodi!'
   })
@@ -56,21 +56,25 @@ function App() {
 
       <button 
         className="Next"
-        onClick={() => setData({
+        onClick={() => {
+          let index = data.slide + 1;
+          setData({
           slide: data.slide + 1,
-          title: `${titleArr[data.slide]}`,
-          text: `${textArr[data.slide]}`
-        })}>
+          title: `${titleArr[index]}`,
+          text: `${textArr[index]}`
+        })}}>
         Next
       </button>
 
       <button 
         className="Prev"
-        onClick={() => setData({
+        onClick={() => {
+          let index = data.slide - 1;
+          setData({
           slide: data.slide - 1,
-          title: `${titleArr[data.slide]}`,
-          text: `${textArr[data.slide]}`
-        })}>
+          title: `${titleArr[index]}`,
+          text: `${textArr[index]}`
+        })}}>
         Prev
       </button>
     </div>
